@@ -1,15 +1,14 @@
 import React from "react";
 import Router from "./router/Router"
-import { ContextPokemon } from "../src/contexts/context"
+import GlobalState from "./Global/GlobalState"
 
 function App() {
 
   
   return (
-    <div >
+    <GlobalState >
       <Router/>
-      
-    </div>
+    </GlobalState>
   );
 }
 

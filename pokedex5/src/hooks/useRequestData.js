@@ -1,9 +1,8 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 export function useRequestData(url) {
-    const [data, setData] = useState(undefined)
+    const [data, setData] = useState({})
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState("")
 
@@ -12,11 +11,10 @@ export function useRequestData(url) {
         setIsLoading(true)
         axios.get(url)
         .then((res) => {
-            setData(res.data.results)
+            setData(res.data)
             setIsLoading(false)
         })
         .catch((err) => {
-            alert(err.response)
             setIsLoading(false)
             setError(err)
         })
@@ -24,7 +22,7 @@ export function useRequestData(url) {
 
     useEffect(() => {
         getPokemons()
-    }, [])
+    }, [url])
 
     return [data, isLoading, error]
 }
