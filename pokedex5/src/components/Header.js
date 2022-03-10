@@ -45,9 +45,8 @@ const ButtonFormat = styled.button `
 
 const Header = () =>{
 
-    const IrparaPokedex = (e) => {
+    const IrparaPokedex = () => {
         console.log ("Funcionou")
-        
     }
     
 
