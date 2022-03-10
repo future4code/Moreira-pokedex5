@@ -1,43 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { useRequestData } from "../hooks/useRequestData";
 
 const CardCointainer = styled.div `
     border: 1px solid black ;
 `
 
 export const CardPokemon = (props) => {
-    const [img, setImg] = useState("")
-    const [isLoading, setIsLoading] = useState(false)
-    const [error, setError] = useState("")
 
     const urlPokemon = props.url
 
-    const getPokemons = (url) => {
-        setIsLoading(true)
-        axios.get(urlPokemon)
-        .then((res) => {
-            setImg(res.data.sprites.front_default)
-            setIsLoading(false)
-        })
-        .catch((err) => {
-            alert(err.response)
-            setIsLoading(false)
-            setError(err)
-        })
-    }
+    const [imagem, loadingImagem, errorImagem] = useRequestData(urlPokemon)
 
-    useEffect(() => {
-        getPokemons()
-    }, [urlPokemon])
 
     return(
         <CardCointainer>
             <h3>Nome:{props.nome}</h3>
-            <img src={img}/>
+            <img src={imagem.sprites? imagem.sprites.versions['generation-v']['black-white'].animated.front_default : <p>imagem não encontrada</p>}/>
             <button>Adicionar</button>
-            <button>Ver Detalhes</button>
+            <button onClick={props.verDetalhes}>Ver Detalhes</button>
         </CardCointainer>
     )
 
