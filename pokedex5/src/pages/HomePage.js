@@ -14,20 +14,15 @@ const Home = () =>{
 
     const navigate = useNavigate()
 
-    const goToDetails = (url) => {
-        navigate("/detalhespage")
-
-    }
-
     const goToPokedex = () => {
-        navigate("/pokedexpage")
+        navigate(`/pokedexpage`)
     }
 
     const request = useContext(ContextPokemon)
 
 
-    const pokemonsList = request.request.pokemons.results && request.request.pokemons.results.map((pokemon, index) => {
-        return <CardPokemon key = {index} nome={pokemon.name} url={pokemon.url} verDetalhes = {() => {goToDetails(pokemon.url)}}/>
+    const pokemonsList = request.request.pokemons.results && request.request.pokemons.results.map((pokemon) => {
+        return <CardPokemon key = {pokemon.name} nome={pokemon.name} url={pokemon.url}/>
     })
 
     
