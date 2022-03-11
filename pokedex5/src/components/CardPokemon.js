@@ -36,7 +36,18 @@ export const CardPokemon = (props) => {
         setter.setPokedex(newPokedex);
         
     };
+
     
+    const excluirPokemon = (newItem) => {
+        
+        const newPokedex = [...state.pokedex];
+        const indexPokemon = state.pokedex.findIndex((item) =>
+            item === newItem
+        )
+        newPokedex.splice(indexPokemon, 1)
+        setter.setPokedex(newPokedex);
+        console.log(newPokedex)
+    };
 
     
     const [imagem, loadingImagem, errorImagem] = useRequestData(urlPokemon)
@@ -47,7 +58,8 @@ export const CardPokemon = (props) => {
         <CardCointainer>
             <h3>Nome:{props.nome}</h3>
             <img src={imagem.sprites? imagem.sprites.versions['generation-v']['black-white'].animated.front_default : <p>imagem não encontrada</p>}/>
-            <button onClick={() => addToPokedex(props.nome)}>Adicionar</button>
+            {state.pokedex.includes(props.nome) &&  <button onClick={() => excluirPokemon(props.nome)}>Remover</button>}
+            {state.pokedex.includes(props.nome) === false && <button onClick={() => addToPokedex(props.nome)}>Adicionar</button>}
             <button onClick={() => goToDetails(props.nome)}>Ver Detalhes</button>
         </CardCointainer>
     )
