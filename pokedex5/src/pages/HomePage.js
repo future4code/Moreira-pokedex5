@@ -26,11 +26,6 @@ const Home = () =>{
     })
 
     
-    /* const productCard = request.products[0]?.products.map((prod) => (
-        <ProductCard key={prod.id} product={prod} addItemToCart={addItemToCart} />
-    )); */
-
-    
     return (
         <div>
             <div>

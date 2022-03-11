@@ -1,13 +1,17 @@
-import React from "react"
+import React, { useContext } from "react"
 import { CardPokemonPokedex } from "../components/CardPokemonPokedex"
+import { ContextPokemon } from "../Global/ContextPokemon"
 
 const Pokedex = () =>{
     
-    const pokedexList = JSON.parse(localStorage.getItem("pokedex"))
+    const state = useContext(ContextPokemon)
+    console.log(state.pokedex)
 
-    console.log(pokedexList)
+    // const pokedexList = JSON.parse(localStorage.getItem("pokedex"))
+
+    // console.log(pokedexList)
     
-    const pokedexDetails = pokedexList.map((pokemon) => {
+    const pokedexDetails = state.pokedex.map((pokemon) => {
         return <CardPokemonPokedex nome={pokemon}/>
     })
 

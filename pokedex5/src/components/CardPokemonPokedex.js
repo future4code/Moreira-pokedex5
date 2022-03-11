@@ -29,8 +29,10 @@ export const CardPokemonPokedex = (props) => {
         )
         newPokedex.splice(indexPokemon, 1)
         setter.setPokedex(newPokedex);
-
+        console.log(newPokedex)
     };
+
+    // localStorage.setItem("pokedex", JSON.stringify(state.pokedex))
     
 
     console.log(state.pokedex)
