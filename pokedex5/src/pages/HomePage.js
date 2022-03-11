@@ -19,11 +19,16 @@ const Home = () =>{
     }
 
     const request = useContext(ContextPokemon)
-
+    const state = useContext(ContextPokemon)
 
     const pokemonsList = request.request.pokemons.results && request.request.pokemons.results.map((pokemon) => {
         return <CardPokemon key = {pokemon.name} nome={pokemon.name} url={pokemon.url}/>
     })
+
+    
+    /* const productCard = request.products[0]?.products.map((prod) => (
+        <ProductCard key={prod.id} product={prod} addItemToCart={addItemToCart} />
+    )); */
 
     
     return (

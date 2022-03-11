@@ -9,7 +9,7 @@ const CardCointainer = styled.div `
     border: 1px solid black ;
 `
 
-export const CardPokemon = (props) => {
+export const CardPokemonPokedex = (props) => {
 
     const urlPokemon = `${BASE_URL}/${props.nome}`
 
@@ -18,36 +18,29 @@ export const CardPokemon = (props) => {
     const goToDetails = (name) => {
         navigate(`/detalhespage/${name}`)
     }
-
     const state = useContext(ContextPokemon)
     const setter = useContext(ContextPokemon)
 
-    const addToPokedex = (newItem) => {
+    const excluirPokemon = (newItem) => {
         
         const newPokedex = [...state.pokedex];
-        
-        if(newPokedex.includes(newItem)){
-            alert("O pokemon ja foi adicionado")
-        }
-        else{
-            newPokedex.push(newItem)
-        }
-    
+        const indexPokemon = state.pokedex.findIndex((item) =>
+            item === newItem
+        )
+        newPokedex.splice(indexPokemon, 1)
         setter.setPokedex(newPokedex);
-        
+
     };
     
 
-    
+    console.log(state.pokedex)
     const [imagem, loadingImagem, errorImagem] = useRequestData(urlPokemon)
-
-
 
     return(
         <CardCointainer>
             <h3>Nome:{props.nome}</h3>
             <img src={imagem.sprites? imagem.sprites.versions['generation-v']['black-white'].animated.front_default : <p>imagem não encontrada</p>}/>
-            <button onClick={() => addToPokedex(props.nome)}>Adicionar</button>
+            <button onClick={() => excluirPokemon(props.nome)}>Remover</button>
             <button onClick={() => goToDetails(props.nome)}>Ver Detalhes</button>
         </CardCointainer>
     )
