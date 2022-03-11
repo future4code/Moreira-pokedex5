@@ -7,12 +7,12 @@ import { useState } from "react";
 const GlobalState = (props) => {
 
     const [pokemons, loadingPokemons, errorPokemons] = useRequestData(`${BASE_URL}`)
-
+    const [pokedex, setPokedex] = useState([])
 
     const request = { pokemons,loadingPokemons,errorPokemons }
 
     return (
-        <ContextPokemon.Provider value={{request}}>
+        <ContextPokemon.Provider value={{request, pokedex, setPokedex}}>
             {props.children}
         </ContextPokemon.Provider>
     )
