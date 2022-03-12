@@ -1,24 +1,26 @@
 import React, { useContext } from "react"
 import { CardPokemonPokedex } from "../components/CardPokemonPokedex"
 import { ContextPokemon } from "../Global/ContextPokemon"
+import styled from "styled-components"
+
+const PokedexContainer = styled.div `
+    display: grid ;
+    grid-template-columns: repeat(4, 1fr) ;
+    gap: 24px ;
+`
 
 const Pokedex = () =>{
     
     const state = useContext(ContextPokemon)
-    console.log(state.pokedex)
-
-    // const pokedexList = JSON.parse(localStorage.getItem("pokedex"))
-
-    // console.log(pokedexList)
     
     const pokedexDetails = state.pokedex.map((pokemon) => {
-        return <CardPokemonPokedex nome={pokemon}/>
+        return <CardPokemonPokedex key={pokemon} nome={pokemon}/>
     })
 
     return (
-        <div>
+        <PokedexContainer>
             {pokedexDetails}
-        </div>
+        </PokedexContainer>
     )
 }
 

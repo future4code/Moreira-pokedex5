@@ -37,13 +37,13 @@ const Detalhes = () =>{
     const [pokemonDetails, loadingDetails, errorDetails] = useRequestData(`${BASE_URL}/${params}`)
 
     const stats = pokemonDetails.stats && pokemonDetails.stats.map((item) => {
-        return (<div>
+        return (<div key={item.stat.name}>
             <p>{item.stat.name}: {item.base_stat}</p>
         </div>)
     })
 
     const types = pokemonDetails.types && pokemonDetails.types.map((item) => {
-        return <div>
+        return <div key={item.type.name}>
             <p>{item.type.name}</p>
         </div>
     })

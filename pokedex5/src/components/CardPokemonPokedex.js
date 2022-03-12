@@ -18,6 +18,7 @@ export const CardPokemonPokedex = (props) => {
     const goToDetails = (name) => {
         navigate(`/detalhespage/${name}`)
         setter.setTela(state.tela + 2)
+        setter.setNome(name)
     }
     const state = useContext(ContextPokemon)
     const setter = useContext(ContextPokemon)
@@ -30,13 +31,8 @@ export const CardPokemonPokedex = (props) => {
         )
         newPokedex.splice(indexPokemon, 1)
         setter.setPokedex(newPokedex);
-        console.log(newPokedex)
     };
-
-    // localStorage.setItem("pokedex", JSON.stringify(state.pokedex))
     
-
-    console.log(state.pokedex)
     const [imagem, loadingImagem, errorImagem] = useRequestData(urlPokemon)
 
     return(

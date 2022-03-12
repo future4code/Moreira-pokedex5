@@ -8,11 +8,12 @@ const GlobalState = (props) => {
     const [tela, setTela] = useState(1)
     const [pokemons, loadingPokemons, errorPokemons] = useRequestData(`${BASE_URL}`)
     const [pokedex, setPokedex] = useState([])
+    const [nome, setNome] = useState("")
 
     const request = { pokemons,loadingPokemons,errorPokemons }
 
     return (
-        <ContextPokemon.Provider value={{tela, setTela, request, pokedex, setPokedex}}>
+        <ContextPokemon.Provider value={{tela, setTela, request, pokedex, setPokedex, nome, setNome}}>
             {props.children}
         </ContextPokemon.Provider>
     )
