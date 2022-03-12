@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { ContextPokemon } from "../Global/ContextPokemon";
+
 
 
 const HeaderFormat = styled.div `
@@ -40,16 +44,30 @@ const ButtonFormat = styled.button `
         
     }
 
-
 `
 
 const Header = () =>{
 
-    const IrparaPokedex = (e) => {
-        console.log ("Funcionou")
-        
-    }
+    // const [tela, setTela] = useState("homePage")
     
+    const state = useContext(ContextPokemon)
+
+    const setter = useContext(ContextPokemon)
+
+    const navigate = useNavigate()
+
+    const IrparaPokedex = () => {
+        setter.setTela("pokedexPage")
+        navigate("/pokedexpage")
+    }
+     const IrParaHomePage = () => {
+        setter.setTela("homePage")
+        navigate("/")
+     }
+     const VoltarTelaAnterior = () => {
+        //  setter.setTela()
+            navigate(-1)
+     }
 
     return (
         <HeaderFormat>
@@ -57,11 +75,22 @@ const Header = () =>{
             alt="pokeapi-Logo"
             src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
             />
-            <ButtonFormat 
+            {state.tela === "homePage" && <ButtonFormat 
                onClick={IrparaPokedex}>
-                POKEDEX
+                Pokedex
+            </ButtonFormat>
+            }
+            {state.tela === "pokedexPage" && <ButtonFormat 
+               onClick={IrParaHomePage}>
+                Home
+            </ButtonFormat>
+            }
+            {state.tela === "detailsPage" && <ButtonFormat 
+               onClick={VoltarTelaAnterior}>
+                Voltar
             </ButtonFormat>
 
+            }
         </HeaderFormat>
     )
 }
