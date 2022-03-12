@@ -5,7 +5,7 @@ import { useRequestData } from "../hooks/useRequestData";
 import { useState } from "react";
 
 const GlobalState = (props) => {
-    const [tela, setTela] = useState("homePage")
+    const [tela, setTela] = useState(1)
     const [pokemons, loadingPokemons, errorPokemons] = useRequestData(`${BASE_URL}`)
     const [pokedex, setPokedex] = useState([])
 

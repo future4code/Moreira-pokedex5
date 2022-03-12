@@ -17,7 +17,7 @@ export const CardPokemon = (props) => {
 
     const goToDetails = (name) => {
         navigate(`/detalhespage/${name}`)
-        setter.setTela("detailsPage")
+        setter.setTela(state.tela + 2)
     }
 
     const state = useContext(ContextPokemon)

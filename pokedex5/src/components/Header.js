@@ -57,15 +57,15 @@ const Header = () =>{
     const navigate = useNavigate()
 
     const IrparaPokedex = () => {
-        setter.setTela("pokedexPage")
+        setter.setTela(state.tela + 1)
         navigate("/pokedexpage")
     }
      const IrParaHomePage = () => {
-        setter.setTela("homePage")
+        setter.setTela(state.tela - 1)
         navigate("/")
      }
      const VoltarTelaAnterior = () => {
-        //  setter.setTela()
+         setter.setTela(state.tela - 2)
             navigate(-1)
      }
 
@@ -75,17 +75,17 @@ const Header = () =>{
             alt="pokeapi-Logo"
             src="https://raw.githubusercontent.com/PokeAPI/media/master/logo/pokeapi_256.png"
             />
-            {state.tela === "homePage" && <ButtonFormat 
+            {state.tela === 1 && <ButtonFormat 
                onClick={IrparaPokedex}>
                 Pokedex
             </ButtonFormat>
             }
-            {state.tela === "pokedexPage" && <ButtonFormat 
+            {state.tela === 2 && <ButtonFormat 
                onClick={IrParaHomePage}>
                 Home
             </ButtonFormat>
             }
-            {state.tela === "detailsPage" && <ButtonFormat 
+            {(state.tela === 3 || state.tela === 4) && <ButtonFormat 
                onClick={VoltarTelaAnterior}>
                 Voltar
             </ButtonFormat>
