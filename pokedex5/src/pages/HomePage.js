@@ -13,11 +13,6 @@ const HomeContainer = styled.div `
 const Home = () =>{
 
     const navigate = useNavigate()
-
-    const goToPokedex = () => {
-        navigate(`/pokedexpage`)
-    }
-
     const request = useContext(ContextPokemon)
     const state = useContext(ContextPokemon)
 
@@ -28,11 +23,6 @@ const Home = () =>{
     
     return (
         <div>
-            <div>
-                <button onClick={goToPokedex}>
-                    Ir para Pokedex
-                </button>
-            </div>
             {request.request.loadingPokemons && <p>Carregando...</p>}
             {!request.request.loadingPokemons && request.request.errorPokemons && <p>Ops, ocorreu um erro! :/</p>}
             {!request.request.loadingPokemons && request.request.pokemons.results && request.request.pokemons.results.length === 0 && (

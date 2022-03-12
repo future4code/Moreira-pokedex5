@@ -5,6 +5,7 @@ import { useRequestData } from "../hooks/useRequestData";
 import { ContextPokemon } from "../Global/ContextPokemon";
 import { BASE_URL } from "../constants/url";
 
+
 const CardCointainer = styled.div `
     border: 1px solid black ;
 `
@@ -17,7 +18,8 @@ export const CardPokemon = (props) => {
 
     const goToDetails = (name) => {
         navigate(`/detalhespage/${name}`)
-        setter.setTela("detailsPage")
+        setter.setTela(state.tela + 2)
+        setter.setNome(name)
     }
 
     const state = useContext(ContextPokemon)
@@ -33,9 +35,7 @@ export const CardPokemon = (props) => {
         else{
             newPokedex.push(newItem)
         }
-    
         setter.setPokedex(newPokedex);
-        
     };
 
     
@@ -47,7 +47,6 @@ export const CardPokemon = (props) => {
         )
         newPokedex.splice(indexPokemon, 1)
         setter.setPokedex(newPokedex);
-        console.log(newPokedex)
     };
 
     
