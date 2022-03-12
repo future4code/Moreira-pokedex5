@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Déborah Luna
 - Arthur Kelvim
 
-Link do Surge: www.link.com.br
+Link do Surge: https://complex-shoe.surge.sh/
 
 O que funciona:
 - Item 1
