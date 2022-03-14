@@ -8,6 +8,8 @@ const HomeContainer = styled.div `
     display: grid ;
     grid-template-columns: repeat(4, 1fr) ;
     gap: 24px ;
+    padding-top: 25px;
+    height: 2000px;
 `
 
 const Home = () =>{
@@ -29,9 +31,9 @@ const Home = () =>{
     return (
         <div>
             <div>
-                <button onClick={goToPokedex}>
+                {/* <button onClick={goToPokedex}>
                     Ir para Pokedex
-                </button>
+                </button> */}
             </div>
             {request.request.loadingPokemons && <p>Carregando...</p>}
             {!request.request.loadingPokemons && request.request.errorPokemons && <p>Ops, ocorreu um erro! :/</p>}
