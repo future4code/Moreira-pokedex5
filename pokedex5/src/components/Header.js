@@ -10,14 +10,10 @@ const HeaderFormat = styled.div `
     background-color: red;
     height: 80px;
     display: flex;
-    flex-directiom: row;
-    justify-content: space-evenly;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     border-radius: 2px;
-    border: 1px solid black;
-
-    
-
 `
 
 const ImgFormat = styled.img `
@@ -29,10 +25,10 @@ const ButtonFormat = styled.button `
     height: 50px;
     cursor: pointer;
     background: transparent;
-    font-size: 20px;
+    font-size: 22px;
     border-radius: 10px;
     color: #4160a0 ;
-    border: #4160a0 ;
+    border: 1px solid yellow;
     margin: 0 1em;
     padding: 0.25em 1em;
     transition: 0.5s all ease-out;
@@ -41,7 +37,6 @@ const ButtonFormat = styled.button `
     &:hover {
         color: red;
         background-color: #f7c925;
-        
     }
 
 `
