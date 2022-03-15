@@ -5,29 +5,60 @@ import { BASE_URL } from "../constants/url"
 import styled from "styled-components"
 
 const ContaineDetails = styled.div`
-    border: 1px solid black ;
+    border: 3px solid red ;
+    margin: 5px auto;
     display: flex ;
-    justify-content: space-evenly ;
+    flex-direction: column;
+    width: 300px;
+    padding: 5px;
+    border-radius: 15px;
 `
 const ContainerImages = styled.div`
-    border: 1px solid black ;
     display: flex ;
-    flex-direction: column ;
     justify-content: space-around ;
+    margin-top: -6px ;
 `
-
 const ContainerImagem = styled.img`
-    border: 1px solid black ;
+    height: 90px;
 `
-
 const ContainerStats = styled.div`
-    border: 1px solid black ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+`
+const H3 = styled.h3`
+    margin-top: -7px ;
 `
 const ContainerTypes = styled.div`
-    border: 1px solid black ;
+    border: 1px solid blue ;
+    width: 100px;
+    text-align: center;
+    border-radius: 15px;
 `
 const ContainerMoves = styled.div`
-    border: 1px solid black ;
+    border: 1px solid yellow ;
+    border-radius: 15px;
+    width: 100px;
+    text-align: center;
+`
+const StatsPokemon = styled.p`
+    border: 1px solid red;
+    height: 20px;
+    width: 150px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    padding-top:3px ;
+    text-align: center;
+`
+const TypeMove = styled.div`
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    margin-top: -15px;
+`
+const P = styled.p`
+    margin-top: -15px;
 `
 
 const Detalhes = () =>{
@@ -38,7 +69,7 @@ const Detalhes = () =>{
 
     const stats = pokemonDetails.stats && pokemonDetails.stats.map((item) => {
         return (<div>
-            <p>{item.stat.name}: {item.base_stat}</p>
+            <StatsPokemon>{item.stat.name}: {item.base_stat}</StatsPokemon>
         </div>)
     })
 
@@ -57,21 +88,21 @@ const Detalhes = () =>{
            <ContainerImagem src ={pokemonDetails.sprites && pokemonDetails.sprites.back_default}/>
            </ContainerImages>
            <ContainerStats>
-           <p> Stats</p>
-           {stats}
+           <H3>Stats</H3>
+           <P>{stats}</P>
            </ContainerStats>
-           <div>
+           <TypeMove>
            <ContainerTypes>
-           <p>Tipos</p>
+           <h3>Tipos</h3>
            {types}
            </ContainerTypes>
            <ContainerMoves>
-           <p>Moves</p>
+           <h3>Moves</h3>
            <p>{pokemonDetails.moves && pokemonDetails.moves[0].move.name}</p>
            <p>{pokemonDetails.moves && pokemonDetails.moves[1].move.name}</p>
            <p>{pokemonDetails.moves && pokemonDetails.moves[2].move.name}</p>
            </ContainerMoves>
-           </div>
+           </TypeMove>
         </ContaineDetails>
     )
 }

@@ -1,6 +1,14 @@
 import React, { useContext } from "react"
 import { CardPokemonPokedex } from "../components/CardPokemonPokedex"
 import { ContextPokemon } from "../Global/ContextPokemon"
+import styled from "styled-components"
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+`
+
 
 const Pokedex = () =>{
     
@@ -16,9 +24,9 @@ const Pokedex = () =>{
     })
 
     return (
-        <div>
+        <Container>
             {pokedexDetails}
-        </div>
+        </Container>
     )
 }
 
