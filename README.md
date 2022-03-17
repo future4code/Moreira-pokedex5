@@ -1,16 +1,13 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Pessoa 1
-- Pessoa 2
-- Pessoa 3
+- Barbara Zau
+- Déborah Luna
+- Arthur Kelvim
 
-Link do Surge: www.link.com.br
+Link do Surge: https://sassy-pokedex.surge.sh/ (Att: 14/03/22 as 23:14)
 
-O que funciona:
-- Item 1
-- Item 2
+<img src="https://user-images.githubusercontent.com/85260996/158283446-8bba77ff-766c-41cc-b0ff-1d5bb230b384.png">
+<img src="https://user-images.githubusercontent.com/85260996/158289199-8f6b86ff-8d22-4770-814e-07ab6f219a2b.png">
+<img src="https://user-images.githubusercontent.com/85260996/158294084-b0086796-d3f1-4e36-b832-eeb856f8711d.png">
 
-O que não funciona: 
-- Item 3
-- Item 4
